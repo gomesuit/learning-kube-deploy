@@ -4,9 +4,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-
-  config.vm.box = "centos/7"
+  config.vm.box = "bento/centos-7.2"
+  config.ssh.forward_agent = true
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
@@ -33,3 +32,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 end
+
