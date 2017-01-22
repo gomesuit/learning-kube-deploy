@@ -24,10 +24,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   (1..WORKER_COUNT).each do |i|
+    _PRIVATE_IP_ADDRESS = "192.168.33.1#{i}"
     config.vm.define "worker#{i}" do |subconfig|
       subconfig.vm.hostname = "worker#{i}"
-      subconfig.vm.network "private_network", ip: "192.168.33.1#{i}"
-      subconfig.vm.provision "shell", path: "install-kubernetes-worker.sh"
+      subconfig.vm.network "private_network", ip: _PRIVATE_IP_ADDRESS
+      subconfig.vm.provision "shell" do |s|
+        s.path = "install-kubernetes-worker.sh"
+        s.args = _PRIVATE_IP_ADDRESS
+      end
     end
   end
 
