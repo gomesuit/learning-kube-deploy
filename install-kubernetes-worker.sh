@@ -7,7 +7,7 @@ fi
 
 WORKER_IP=$1
 
-curl -fsSL https://get.docker.com/ | sh
+#curl -fsSL https://get.docker.com/ | sh
 
 git clone https://github.com/kubernetes/kube-deploy
 cd kube-deploy/docker-multinode
