@@ -1,6 +1,10 @@
 # vagrant-kubernetes2
 
+### 参考
 http://kubernetes.io/docs/getting-started-guides/docker-multinode/
+
+### dashboard
+http://192.168.33.10:8080/ui
 
 ```
 # nodeの確認
